@@ -53,10 +53,10 @@ class _ProductListState extends State<ProductList> implements ProductListViewCon
 
     if(_isSearching) {
       widget = new Center(
-        child: new Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-          child: new CircularProgressIndicator()
-        )
+        // child: new Padding(
+        //   padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+        //   child: new CircularProgressIndicator()
+        // )
       );
     }else {
       widget = new ListView(
