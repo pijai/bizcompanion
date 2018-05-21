@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import './tabs/home.dart' as _firstTab;
 import './tabs/client.dart' as _secondTab;
 import './tabs/products.dart' as _thirdTab;
-import './tabs/transaction.dart' as _fourthTab;
+import './transaction/ui/todo_list.dart' as _fourthTab;
+// import './tabs/transaction.dart' as _fourthTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
 import 'injection/client_dependency_injection.dart';
@@ -125,7 +126,7 @@ class TabsState extends State<Tabs> {
         new _firstTab.Home(),
         new _secondTab.ClientTab(),
         new _thirdTab.Products(),
-        new _fourthTab.Transactions()
+        new _fourthTab.TodoList()
       ],
     ),
 
