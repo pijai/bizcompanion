@@ -234,7 +234,7 @@ class _NewTodoState extends State<NewTodo> {
       ),
       initialValue: widget.todo.note ?? '',
       keyboardType: TextInputType.text,
-      validator: _validateDesc,
+      // validator: _validateDesc,
       onSaved: _noteOnSave,
     );
   }

@@ -14,7 +14,7 @@ class DatabaseHelper {
   DatabaseHelper._internal();
 
   Database _database;
-  final String _dbName = 'todo_list.db';
+  final String _dbName = 'todo_list1.db';
   static final DatabaseHelper _databaseHelper = new DatabaseHelper._internal();
   final String _createTableTodo = 'CREATE TABLE ' +
       Todo.tableName +
