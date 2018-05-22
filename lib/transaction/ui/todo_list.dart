@@ -185,8 +185,8 @@ class _TodoListState extends State<TodoList> {
       style: new TextStyle(
           color: Colors.black,
           fontSize: 16.0,
-          decoration:
-              todo.done ? TextDecoration.lineThrough : TextDecoration.none),
+          decoration:TextDecoration.none),
+              // todo.done ? TextDecoration.lineThrough : TextDecoration.none),
     ));
   }
 
@@ -436,8 +436,8 @@ class _TodoListState extends State<TodoList> {
       switch (categoryId) {
         case -1:
           return todoList;
-        case -2:
-          return todoList?.where((todo) => todo.done)?.toList();
+        // case -2:
+        //   return todoList?.where((todo) => todo.done)?.toList();
         default:
           return todoList
               ?.where((todo) => todo.categoryId == categoryId)
