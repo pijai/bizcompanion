@@ -56,7 +56,7 @@ class _TodoListState extends State<TodoList> {
     return _categoryProvider.getAllCategory().then((categories) {
       categories.insert(0, new Category(id: -1, name: Category.allLists));
       // categories.insert(
-      //     categories.length, new Category(id: -2, name: Category.finished));
+      //     categories.length, new Category(id: -2, name: Category.allLists));
       setState(() => _categoryList = categories);
     });
   }
@@ -162,21 +162,25 @@ class _TodoListState extends State<TodoList> {
     return new Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        // _createListItemLeftContent(todo),
-        _createListItemRightContent(todo)
+        _createListItemLeftContent(todo),
+        _createListItemRightContent(todo),
+        // _createListItemLeftContent(todo)
       ],
     );
   }
 
   Widget _createListItemLeftContent(Todo todo) {
-    return new Checkbox(
-      value: todo.done,
-      onChanged: (change) {
-        setState(() => todo.done = change);
-        _todoProvider.update(todo);
-      },
-    );
+    return new Text('RM ${todo.amount}');
   }
+  // Widget _createListItemLeftContent(Todo todo) {
+  //   return new Checkbox(
+  //     value: todo.done,
+  //     onChanged: (change) {
+  //       setState(() => todo.done = change);
+  //       _todoProvider.update(todo);
+  //     },
+  //   );
+  // }
 
   Widget _createListItemRightContent(Todo todo) {
     return new Expanded(
@@ -230,6 +234,7 @@ class _TodoListState extends State<TodoList> {
           body: _createBody(),
           floatingActionButton: _createFloatingActionButton(),
         ),
+    // );
         onWillPop: _showSnackbarOnClose);
   }
 
@@ -436,8 +441,8 @@ class _TodoListState extends State<TodoList> {
       switch (categoryId) {
         case -1:
           return todoList;
-        case -2:
-          return todoList?.where((todo) => todo.done)?.toList();
+        // case -2:
+        //   return todoList?.where((todo) => todo.done)?.toList();
         default:
           return todoList
               ?.where((todo) => todo.categoryId == categoryId)

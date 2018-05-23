@@ -14,7 +14,7 @@ class DatabaseHelper {
   DatabaseHelper._internal();
 
   Database _database;
-  final String _dbName = 'todo_list1.db';
+  final String _dbName = 'todo_list2.db';
   static final DatabaseHelper _databaseHelper = new DatabaseHelper._internal();
   final String _createTableTodo = 'CREATE TABLE ' +
       Todo.tableName +
@@ -25,8 +25,8 @@ class DatabaseHelper {
       ' TEXT,' +
       Todo.columnAmount +
       ' TEXT,' +
-      Todo.columnDone +
-      ' INTEGER,' +
+      // Todo.columnDone +
+      // ' INTEGER,' +
       Todo.columnDate +
       ' TEXT,' +
       Todo.columnCategoryId +
@@ -73,7 +73,7 @@ class DatabaseHelper {
       //When creating the db, create the table
       await db.execute(_createTableTodo);
       await db.execute(_createCategoryTable);
-      [Category.debit, Category.credit]
+      [Category.deFault, Category.debit, Category.credit]
       // [Category.deFault, Category.personal, Category.shopping, Category.wishList, Category.work]
           .forEach((categoryName) async {
         await db.insert(

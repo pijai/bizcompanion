@@ -11,7 +11,7 @@ class Category {
   static const String allLists = 'All Lists';
   static const String debit = 'Debit';
   static const String credit = 'Credit';
-  // static const String deFault = 'Default';
+  static const String deFault = 'Default';
   // static const String personal = 'Personal';
   // static const String shopping = 'Shopping';
   // static const String wishList = 'Wishlist';
@@ -36,8 +36,8 @@ class Category {
     switch (name) {
       case credit:
         return FontAwesomeIcons.minusCircle;
-      // case shopping:
-      //   return FontAwesomeIcons.shoppingCart;
+      case debit:
+        return FontAwesomeIcons.plusCircle;
       // case wishList:
       //   return FontAwesomeIcons.heart;
       // case work:
@@ -45,7 +45,7 @@ class Category {
       // case finished:
       //   return Icons.check;
       default:
-        return FontAwesomeIcons.plusCircle;
+        return FontAwesomeIcons.list;
     }
   }
 }

@@ -47,7 +47,7 @@ class TodoProvider {
             Todo.columnId,
             Todo.columnNote,
             Todo.columnAmount,
-            Todo.columnDone,
+            // Todo.columnDone,
             Todo.columnDate
           ],
           where: '${Todo.columnId} = ?',

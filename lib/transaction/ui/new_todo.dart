@@ -99,10 +99,10 @@ class _NewTodoState extends State<NewTodo> {
             child: new Column(
               children: <Widget>[
                 _createDatePicker(),
+                 _categoryList.isNotEmpty?
+                _createCategoryDropDownList(_categoryList):new Container(),
                 _createNote(),
-                _createAmount(),
-                _categoryList.isNotEmpty?
-                _createCategoryDropDownList(_categoryList):new Container()
+                _createAmount()             
               ],
             ),
           )),
