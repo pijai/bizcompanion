@@ -48,6 +48,7 @@ class Transactions extends StatelessWidget {
         ],
       ),
     );
+    
     return new Scaffold(
       body: new Column(
         children: <Widget>[

@@ -43,7 +43,7 @@ class ProductFormState extends State<ProductForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: InputBorder.none,
-                    filled: true,
+                    filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.toys),
@@ -52,11 +52,12 @@ class ProductFormState extends State<ProductForm> {
                   ),
                   onSaved: (String value) { product.productName; },
                 ),
+                new Divider(height: 5.0, color: Colors.grey,),
                 const SizedBox(height: 24.0),
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: InputBorder.none,
-                    filled: true,
+                    filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.description),
@@ -66,11 +67,12 @@ class ProductFormState extends State<ProductForm> {
                   // maxLines: 3,
                   onSaved: (String value) { product.productDetails; },
                 ),
+                new Divider(height: 5.0, color: Colors.grey,),
                 const SizedBox(height: 24.0),
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: InputBorder.none,
-                    filled: true,
+                    filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.monetization_on),
@@ -82,11 +84,12 @@ class ProductFormState extends State<ProductForm> {
                   keyboardType: TextInputType.phone,
                   onSaved: (String value) { product.productCostPrice; },
                 ),
+                new Divider(height: 5.0, color: Colors.grey,),
                 const SizedBox(height: 24.0),
                 new TextFormField(
                   decoration: const InputDecoration(
                       border: InputBorder.none,
-                    filled: true,
+                    filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.attach_money),
@@ -98,12 +101,13 @@ class ProductFormState extends State<ProductForm> {
                   keyboardType: TextInputType.phone,
                   onSaved: (String value) { product.productSellPrice; },
                 ),
+                new Divider(height: 5.0, color: Colors.grey,),
                 const SizedBox(height: 24.0),
                 new TextFormField(
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
                       border: InputBorder.none,
-                    filled: true,
+                    filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.grade),
@@ -113,6 +117,7 @@ class ProductFormState extends State<ProductForm> {
                     suffixStyle: const TextStyle(color: Colors.green),
                   ),
                 ),
+                new Divider(height: 5.0, color: Colors.grey,),
               ],
             ),
           ),

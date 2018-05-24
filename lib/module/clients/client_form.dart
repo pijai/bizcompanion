@@ -42,7 +42,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.person),
                     labelText: 'Client Name',
                   ),
@@ -52,7 +52,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.description),
                     labelText: 'Client Details',
                   ),
@@ -62,7 +62,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.nature_people),
                     labelText: 'Gender',
                   ),
@@ -72,7 +72,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.email),
                     labelText: 'E-Mail',
                   ),
@@ -82,7 +82,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.phone),
                     labelText: 'Contact Number',
                   ),
@@ -92,7 +92,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.home),
                     labelText: 'Address',
                   ),
@@ -102,7 +102,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.note_add),
                     labelText: 'Notes',
                   ),
@@ -112,7 +112,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.report_problem),
                     labelText: 'Problem Category',
                   ),
@@ -122,7 +122,7 @@ class ClientFormState extends State<ClientForm> {
                 new TextFormField(
                   decoration: const InputDecoration(
                     border: const UnderlineInputBorder(),
-                    filled: true,
+                    filled: false,
                     icon: const Icon(Icons.sync_problem),
                     labelText: 'Problem Details',
                   ),

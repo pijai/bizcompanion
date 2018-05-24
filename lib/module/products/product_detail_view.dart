@@ -37,7 +37,7 @@ class ProductPage extends StatelessWidget {
                   new TextFormField(
                     decoration: const InputDecoration(
                       border: InputBorder.none,
-                      filled: true,
+                      filled: false,
                     prefixIcon: const Padding(                      
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.toys),
@@ -47,11 +47,12 @@ class ProductPage extends StatelessWidget {
                     ),
                     initialValue: _product.productName ,
                   ),
+                  new Divider(height: 5.0, color: Colors.grey,),
                   const SizedBox(height: 24.0),
                   new TextFormField(
                     decoration: const InputDecoration(
                       border: InputBorder.none,
-                      filled: true,
+                      filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.description),
@@ -61,11 +62,12 @@ class ProductPage extends StatelessWidget {
                     ),
                     initialValue: _product.productDetails ,
                   ),
+                  new Divider(height: 5.0, color: Colors.grey,),
                   const SizedBox(height: 24.0),
                   new TextFormField(
                     decoration: const InputDecoration(
                       border: InputBorder.none,
-                      filled: true,
+                      filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.monetization_on),
@@ -77,11 +79,12 @@ class ProductPage extends StatelessWidget {
                     keyboardType: TextInputType.phone,
                     initialValue: _product.productCostPrice,
                   ),
+                  new Divider(height: 5.0, color: Colors.grey,),
                   const SizedBox(height: 24.0),
                   new TextFormField(
                     decoration: const InputDecoration(
                       border: InputBorder.none,
-                      filled: true,
+                      filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.attach_money),
@@ -91,12 +94,13 @@ class ProductPage extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     initialValue: _product.productSellPrice,
                   ),
+                  new Divider(height: 5.0, color: Colors.grey,),
                   const SizedBox(height: 24.0),
                   new TextFormField(
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
-                      filled: true,
+                      filled: false,
                     prefixIcon: const Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16.0),
                       child: Icon(Icons.grade),
@@ -108,6 +112,7 @@ class ProductPage extends StatelessWidget {
                     ),
                     initialValue: _product.productQuantity,
                   ),
+                  new Divider(height: 5.0, color: Colors.grey,),
                 ],
               ),
             ),

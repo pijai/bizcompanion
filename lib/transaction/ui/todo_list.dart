@@ -55,8 +55,8 @@ class _TodoListState extends State<TodoList> {
   Future _getCategoryList() async {
     return _categoryProvider.getAllCategory().then((categories) {
       categories.insert(0, new Category(id: -1, name: Category.allLists));
-      // categories.insert(
-      //     categories.length, new Category(id: -2, name: Category.allLists));
+      categories.insert(
+          categories.length, new Category(id: -2, name: Category.allLists));
       setState(() => _categoryList = categories);
     });
   }
@@ -162,9 +162,9 @@ class _TodoListState extends State<TodoList> {
     return new Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        _createListItemLeftContent(todo),
+        // _createListItemLeftContent(todo),
         _createListItemRightContent(todo),
-        // _createListItemLeftContent(todo)
+        _createListItemLeftContent(todo)
       ],
     );
   }
@@ -172,15 +172,6 @@ class _TodoListState extends State<TodoList> {
   Widget _createListItemLeftContent(Todo todo) {
     return new Text('RM ${todo.amount}');
   }
-  // Widget _createListItemLeftContent(Todo todo) {
-  //   return new Checkbox(
-  //     value: todo.done,
-  //     onChanged: (change) {
-  //       setState(() => todo.done = change);
-  //       _todoProvider.update(todo);
-  //     },
-  //   );
-  // }
 
   Widget _createListItemRightContent(Todo todo) {
     return new Expanded(
@@ -193,7 +184,17 @@ class _TodoListState extends State<TodoList> {
               // todo.done ? TextDecoration.lineThrough : TextDecoration.none),
     ));
   }
-
+// 
+    // Widget _createListItemLeftContent(Todo todo) {
+  //   return new Checkbox(
+  //     value: todo.done,
+  //     onChanged: (change) {
+  //       setState(() => todo.done = change);
+  //       _todoProvider.update(todo);
+  //     },
+  //   );
+  // }
+// 
   _showSnackBar(Todo todo) {
     key.currentState.hideCurrentSnackBar();
     key.currentState.showSnackBar(
@@ -243,12 +244,94 @@ class _TodoListState extends State<TodoList> {
       children: <Widget>[
         _isSearchBarViewOpen ? _createStatusBar() : new Container(),
         // _isSearchBarViewOpen ? _createSearchBar() : _createAppBar(),
+        new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Container(
+                padding: EdgeInsets.only(top: 26.0),
+                child: new Text('Balance',
+                  style: new TextStyle(color: Theme.of(context).primaryColor),
+                ),
+              ),
+              new Container(
+                child: new Text('RM 1120',
+                  style: new TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.orangeAccent,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          new Container(
+      child: new Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          buildValueColumn('Income', 'RM 1220', Colors.green),
+          buildValueColumn('Expenses', 'RM 100', Colors.red),
+        ],
+      ),
+    ),
+          new Container(
+            color: Colors.grey,
+            height: 26.0,
+              // decoration: new BoxDecoration(
+              //   color: Colors.grey,
+              // ),
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Center(
+                    child: new Text(
+                'Transaction History',
+                style: new TextStyle(
+                  color: Colors.white,
+                ),
+                ),
+                  )
+                ],
+              )
+
+          ),
         new Expanded(
             child:
                 _todoList.isNotEmpty ? _createListView() : _buildNoTodoView())
       ],
     );
   }
+
+  Column buildValueColumn(String label, String value, MaterialColor color) {
+      Color colorTitle = Theme.of(context).primaryColor;
+
+      return new Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          new Container(
+            padding: EdgeInsets.only(top: 26.0),
+            child: new Text(
+              label,
+              style: new TextStyle(
+                color: colorTitle,
+              ),
+            ),
+          ),
+          new Container(
+            margin: const EdgeInsets.only(top: 8.0),
+            padding: EdgeInsets.only(bottom: 26.0),
+            child: new Text(
+              value,
+              style: new TextStyle(
+                fontSize: 26.0,
+                fontWeight: FontWeight.w400,
+                color: color,
+                
+              ),
+            ),
+          ),
+        ],
+      );
+    }
 
   Center _buildNoTodoView() {
     return new Center(
@@ -282,15 +365,17 @@ class _TodoListState extends State<TodoList> {
 
   List<Widget> _buildLoader() {
     _initalState = false;
-    return <Widget>[new CircularProgressIndicator()];
+    return <Widget>[
+      // new CircularProgressIndicator()
+      ];
   }
 
   List<Widget> _buildNoToDoViewItem() {
     return <Widget>[
-      new Icon(Icons.list, size: 80.0, color: Colors.grey.withOpacity(0.4)),
-      new Text('No Transaction',
-          style: new TextStyle(
-              color: Colors.grey.withOpacity(0.7), fontSize: 16.0))
+      // new Icon(Icons.list, size: 80.0, color: Colors.grey.withOpacity(0.4)),
+      // new Text('No Transaction',
+      //     style: new TextStyle(
+      //         color: Colors.grey.withOpacity(0.7), fontSize: 16.0))
     ];
   }
 
@@ -443,6 +528,8 @@ class _TodoListState extends State<TodoList> {
           return todoList;
         // case -2:
         //   return todoList?.where((todo) => todo.done)?.toList();
+        case -2:
+          return todoList;
         default:
           return todoList
               ?.where((todo) => todo.categoryId == categoryId)

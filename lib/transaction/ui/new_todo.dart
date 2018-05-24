@@ -102,7 +102,10 @@ class _NewTodoState extends State<NewTodo> {
                  _categoryList.isNotEmpty?
                 _createCategoryDropDownList(_categoryList):new Container(),
                 _createNote(),
-                _createAmount()             
+                new Divider(height: 5.0, color: Colors.grey,),
+                const SizedBox(height: 24.0),
+                _createAmount(),
+                new Divider(height: 5.0, color: Colors.grey,)          
               ],
             ),
           )),
@@ -230,6 +233,7 @@ class _NewTodoState extends State<NewTodo> {
         contentPadding: const EdgeInsets.all(4.0),
         icon: const Icon(Icons.note),
         hintText: 'Transaction details',
+        border: InputBorder.none,
         // labelText: 'Transaction details',
       ),
       initialValue: widget.todo.note ?? '',
@@ -254,7 +258,8 @@ class _NewTodoState extends State<NewTodo> {
       icon: const Icon(Icons.monetization_on),
       hintText: 'Amount',
       suffixText: 'MYR',
-      suffixStyle: const TextStyle(color: Colors.green)
+      suffixStyle: const TextStyle(color: Colors.green),
+      border: InputBorder.none
     ),
       initialValue: widget.todo.amount ?? '',
       keyboardType: TextInputType.phone,
