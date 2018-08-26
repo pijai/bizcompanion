@@ -35,109 +35,10 @@ class ClientPage extends StatelessWidget {
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    icon: const Icon(Icons.person),
-                    border: InputBorder.none,
-                    filled: false,
-                    hintText: 'Client Name',
-                  ),
-                  initialValue: _client.fullName,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    icon: const Icon(Icons.description),
-                    border: InputBorder.none,
-                    filled: false,
-                    hintText: 'Client Details',
-                  ),
-                  initialValue: _client.description,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,                    
-                    icon: const Icon(Icons.nature_people),
-                    hintText: 'Gender',
-                  ),
-                  initialValue: _client.gender,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,
-                    icon: const Icon(Icons.email),
-                    hintText: 'E-Mail',
-                  ),
-                  initialValue: _client.email,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,
-                    icon: const Icon(Icons.phone),
-                    hintText: 'Contact Number',
-                  ),
-                  keyboardType: TextInputType.phone,
-                  initialValue: _client.phones,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,
-                    icon: const Icon(Icons.home),
-                    hintText: 'Address',
-                  ),
-                  initialValue: _client.location,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,
-                    icon: const Icon(Icons.note_add),
-                    hintText: 'Notes',
-                  ),
-                  initialValue: _client.notes,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,
-                    icon: const Icon(Icons.report_problem),
-                    hintText: 'Problem Category',
-                  ),
-                  initialValue: _client.problems,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,
-                    prefixIcon: const Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 16.0),
-                      child: Icon(Icons.sync_problem),
-                    ),  
-                    hintText: 'Problem Details',
-                  ),
-                  initialValue: _client.problemDetails,
-                ),
-                new Divider(height: 5.0, color: Colors.grey,),
+                _clientNewForm(),
+                _clientHistoryTitle(),
+                _clientPurchaseAmount(),
+                _clientHistoryList()
               ],
             ),
           ),
@@ -153,5 +54,167 @@ class ClientPage extends StatelessWidget {
 
   void _saveClientForm(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  Widget _clientNewForm() {
+    return Column(
+      children: <Widget>[
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            icon: const Icon(Icons.person),
+            border: InputBorder.none,
+            filled: false,
+            hintText: 'Client Name',
+          ),
+          initialValue: _client.fullName,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            icon: const Icon(Icons.description),
+            border: InputBorder.none,
+            filled: false,
+            hintText: 'Client Details',
+          ),
+          initialValue: _client.description,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.nature_people),
+            hintText: 'Gender',
+          ),
+          initialValue: _client.gender,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.email),
+            hintText: 'E-Mail',
+          ),
+          initialValue: _client.email,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.phone),
+            hintText: 'Contact Number',
+          ),
+          keyboardType: TextInputType.phone,
+          initialValue: _client.phones,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.home),
+            hintText: 'Address',
+          ),
+          initialValue: _client.location,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.note_add),
+            hintText: 'Notes',
+          ),
+          initialValue: _client.notes,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.report_problem),
+            hintText: 'Problem Category',
+          ),
+          initialValue: _client.problems,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            prefixIcon: const Padding(
+              padding: const EdgeInsetsDirectional.only(end: 16.0),
+              child: Icon(Icons.sync_problem),
+            ),
+            hintText: 'Problem Details',
+          ),
+          initialValue: _client.problemDetails,
+        ),
+        new Divider(height: 5.0, color: Colors.grey,)
+      ],
+    );
+  }
+
+  Widget _clientHistoryTitle() {
+    return new Container(
+        padding: EdgeInsets.only(top: 24.0),
+        child: Text(
+          'Purchase History',
+          style: TextStyle(
+              color: Colors.grey[500],
+              fontSize: 16.0
+          ),
+        ));
+  }
+
+  Widget _clientPurchaseAmount() {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Text(
+            'Total Purchase',
+            style: TextStyle(
+              fontSize: 24.0,
+//              fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
+        Text(
+          'RM 104.00',
+          style: TextStyle(
+            color: Colors.green,
+            fontSize: 32.0,
+            fontWeight: FontWeight.bold
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _clientHistoryList() {
+    return Container(
+      height: 100.0,
+      padding: EdgeInsets.all(24.0),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24.0),
+          border: Border(
+            top: BorderSide(style: BorderStyle.solid, color: const Color(0xFFFFDFDFDF)),
+            bottom: BorderSide(style: BorderStyle.solid, color: const Color(0xFFFFDFDFDF)),
+            left: BorderSide(style: BorderStyle.solid, color: const Color(0xFFFFDFDFDF)),
+            right: BorderSide(style: BorderStyle.solid, color: const Color(0xFFFFDFDFDF)),
+          )
+      ),
+    );
   }
 }

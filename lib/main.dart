@@ -29,7 +29,8 @@ void main() {
         settings: settings,
       );
       case '/support': return new FromRightToLeft(
-        builder: (_) => new _supportPage.Support(),
+//        builder: (_) => new _supportPage.Support(),
+        builder: (_) => new _supportPage.FullScreenDialogDemo(),
         settings: settings,
       );
     }

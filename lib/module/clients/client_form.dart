@@ -38,96 +38,97 @@ class ClientFormState extends State<ClientForm> {
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.person),
-                    labelText: 'Client Name',
-                  ),
-                  onSaved: (String value) { client.fullName; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.description),
-                    labelText: 'Client Details',
-                  ),
-                  onSaved: (String value) { client.description; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.nature_people),
-                    labelText: 'Gender',
-                  ),
-                  onSaved: (String value) { client.gender; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.email),
-                    labelText: 'E-Mail',
-                  ),
-                  onSaved: (String value) { client.email; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.phone),
-                    labelText: 'Contact Number',
-                  ),
-                  onSaved: (String value) { client.phones; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.home),
-                    labelText: 'Address',
-                  ),
-                  onSaved: (String value) { client.location; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.note_add),
-                    labelText: 'Notes',
-                  ),
-                  onSaved: (String value) { client.notes; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.report_problem),
-                    labelText: 'Problem Category',
-                  ),
-                  onSaved: (String value) { client.problems; },
-                ),
-                const SizedBox(height: 24.0),
-                new TextFormField(
-                  decoration: const InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    filled: false,
-                    icon: const Icon(Icons.sync_problem),
-                    labelText: 'Problem Details',
-                  ),
-                  onSaved: (String value) { client.problemDetails; },
-                ),
+                _rowClientForm(),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.person),
+//                    labelText: 'Client Name',
+//                  ),
+//                  onSaved: (String value) { client.fullName; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.description),
+//                    labelText: 'Client Details',
+//                  ),
+//                  onSaved: (String value) { client.description; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.nature_people),
+//                    labelText: 'Gender',
+//                  ),
+//                  onSaved: (String value) { client.gender; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.email),
+//                    labelText: 'E-Mail',
+//                  ),
+//                  onSaved: (String value) { client.email; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.phone),
+//                    labelText: 'Contact Number',
+//                  ),
+//                  onSaved: (String value) { client.phones; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.home),
+//                    labelText: 'Address',
+//                  ),
+//                  onSaved: (String value) { client.location; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.note_add),
+//                    labelText: 'Notes',
+//                  ),
+//                  onSaved: (String value) { client.notes; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.report_problem),
+//                    labelText: 'Problem Category',
+//                  ),
+//                  onSaved: (String value) { client.problems; },
+//                ),
+//                const SizedBox(height: 24.0),
+//                new TextFormField(
+//                  decoration: const InputDecoration(
+//                    border: const UnderlineInputBorder(),
+//                    filled: false,
+//                    icon: const Icon(Icons.sync_problem),
+//                    labelText: 'Problem Details',
+//                  ),
+//                  onSaved: (String value) { client.problemDetails; },
+//                ),
               ],
             ),
           ),
@@ -137,6 +138,116 @@ class ClientFormState extends State<ClientForm> {
         child: const Icon(Icons.save),
         onPressed: () {_handleSubmitted();} ,
       ),
+    );
+  }
+
+  Widget _rowClientForm() {
+    return Column(
+      children: <Widget>[
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            icon: const Icon(Icons.person),
+            border: InputBorder.none,
+            filled: false,
+            hintText: 'Client Name',
+          ),
+          onSaved: (String value) {client.fullName;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            icon: const Icon(Icons.description),
+            border: InputBorder.none,
+            filled: false,
+            hintText: 'Client Details',
+          ),
+          onSaved: (String value) {client.description;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.nature_people),
+            hintText: 'Gender',
+          ),
+          onSaved: (String value) {client.gender;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.email),
+            hintText: 'E-Mail',
+          ),
+          onSaved: (String value) {client.email;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.phone),
+            hintText: 'Contact Number',
+          ),
+          keyboardType: TextInputType.phone,
+          onSaved: (String value) {client.phones;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.home),
+            hintText: 'Address',
+          ),
+          onSaved: (String value) {client.location;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.note_add),
+            hintText: 'Notes',
+          ),
+          onSaved: (String value) {client.notes;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            icon: const Icon(Icons.report_problem),
+            hintText: 'Problem Category',
+          ),
+          onSaved: (String value) {client.problems;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,),
+//        const SizedBox(height: 24.0),
+        new TextFormField(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            filled: false,
+            prefixIcon: const Padding(
+              padding: const EdgeInsetsDirectional.only(end: 16.0),
+              child: Icon(Icons.sync_problem),
+            ),
+            hintText: 'Problem Details',
+          ),
+          onSaved: (String value) {client.problemDetails;},
+        ),
+        new Divider(height: 5.0, color: Colors.grey,)
+      ],
     );
   }
 }

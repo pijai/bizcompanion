@@ -85,7 +85,7 @@ class _TodoListState extends State<TodoList> {
           return _createItemByViewType(_todoList[index]);
         },
         itemCount: _todoList.length,
-        padding: const EdgeInsets.only(bottom: 8.0, right: 4.0, left: 4.0),
+        padding: const EdgeInsets.only(bottom: 8.0, right: 0.0, left: 0.0),
       ),
     );
   }
@@ -94,8 +94,12 @@ class _TodoListState extends State<TodoList> {
     switch (item.getViewType()) {
       case ViewType.HEADER:
         return new Container(
-          padding: new EdgeInsets.fromLTRB(18.0, 16.0, 18.0, 16.0),
-          child: new Text((item as Header).date),
+          padding: new EdgeInsets.fromLTRB(18.0, 8.0, 18.0, 8.0),
+          color: Colors.blue,
+          child: new Text(
+            (item as Header).date,
+            style: TextStyle(color: Colors.white),
+          ),
         );
       case ViewType.TODO:
         return _createListItem(item);
@@ -126,21 +130,22 @@ class _TodoListState extends State<TodoList> {
 
   Widget _createListItem(Todo todo) {
     return new Dismissible(
-        direction: DismissDirection.endToStart,
-        key: new Key(todo.id.toString()),
-        onDismissed: (dismissDirection) {
-          _dismissListItem(todo);
+      direction: DismissDirection.endToStart,
+      key: new Key(todo.id.toString()),
+      onDismissed: (dismissDirection) {
+        _dismissListItem(todo);
+      },
+      // child: new Card(
+      child: new InkWell(
+        onTap: () {
+          _openEditTodo(todo);
         },
-        child: new Card(
-          child: new InkWell(
-            onTap: () {
-              _openEditTodo(todo);
-            },
-            child: new Padding(
-                padding: const EdgeInsets.fromLTRB(0.0, 8.0, 14.0, 8.0),
-                child: _createListItemContent(todo)),
-          ),
-        ));
+        child: new Padding(
+            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
+            child: _createListItemContent(todo)),
+      ),
+    );
+    // ));
   }
 
   _dismissListItem(Todo todo) async {
@@ -170,7 +175,12 @@ class _TodoListState extends State<TodoList> {
   }
 
   Widget _createListItemLeftContent(Todo todo) {
-    return new Text('RM ${todo.amount}');
+    return new Text(
+      'RM ${todo.amount}',
+      style: new TextStyle(
+        color: todo.categoryId == 3 ? Colors.red : Colors.green,
+      ),
+    );
   }
 
   Widget _createListItemRightContent(Todo todo) {
@@ -178,14 +188,13 @@ class _TodoListState extends State<TodoList> {
         child: new Text(
       todo.note,
       style: new TextStyle(
-          color: Colors.black,
-          fontSize: 16.0,
-          decoration:TextDecoration.none),
-              // todo.done ? TextDecoration.lineThrough : TextDecoration.none),
+          color: Colors.black, fontSize: 16.0, decoration: TextDecoration.none),
+      // todo.done ? TextDecoration.lineThrough : TextDecoration.none),
     ));
   }
-// 
-    // Widget _createListItemLeftContent(Todo todo) {
+
+//
+  // Widget _createListItemLeftContent(Todo todo) {
   //   return new Checkbox(
   //     value: todo.done,
   //     onChanged: (change) {
@@ -194,7 +203,7 @@ class _TodoListState extends State<TodoList> {
   //     },
   //   );
   // }
-// 
+//
   _showSnackBar(Todo todo) {
     key.currentState.hideCurrentSnackBar();
     key.currentState.showSnackBar(
@@ -235,7 +244,7 @@ class _TodoListState extends State<TodoList> {
           body: _createBody(),
           floatingActionButton: _createFloatingActionButton(),
         ),
-    // );
+        // );
         onWillPop: _showSnackbarOnClose);
   }
 
@@ -245,55 +254,57 @@ class _TodoListState extends State<TodoList> {
         _isSearchBarViewOpen ? _createStatusBar() : new Container(),
         // _isSearchBarViewOpen ? _createSearchBar() : _createAppBar(),
         new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Container(
-                padding: EdgeInsets.only(top: 26.0),
-                child: new Text('Balance',
-                  style: new TextStyle(color: Theme.of(context).primaryColor),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Container(
+              padding: EdgeInsets.only(top: 26.0),
+              child: new Text(
+                'Balance',
+                style: new TextStyle(color: Theme.of(context).primaryColor),
+              ),
+            ),
+            new Container(
+              child: new Text(
+                'RM 1120',
+                style: new TextStyle(
+                  fontSize: 30.0,
+                  color: Colors.orangeAccent,
                 ),
               ),
-              new Container(
-                child: new Text('RM 1120',
-                  style: new TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.orangeAccent,
-                  ),
-                ),
-              ),
+            ),
+          ],
+        ),
+        new Container(
+          child: new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildValueColumn('Income', 'RM 1220', Colors.green),
+              buildValueColumn('Expenses', 'RM 100', Colors.red),
             ],
           ),
-          new Container(
-      child: new Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          buildValueColumn('Income', 'RM 1220', Colors.green),
-          buildValueColumn('Expenses', 'RM 100', Colors.red),
-        ],
-      ),
-    ),
-          new Container(
+        ),
+        new Container(
             color: Colors.grey,
-            height: 26.0,
-              // decoration: new BoxDecoration(
-              //   color: Colors.grey,
-              // ),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Center(
-                    child: new Text(
-                'Transaction History',
-                style: new TextStyle(
-                  color: Colors.white,
-                ),
-                ),
-                  )
-                ],
-              )
-
-          ),
-        new Expanded(
+            height: 32.0,
+            // decoration: new BoxDecoration(
+            //   color: Colors.grey,
+            // ),
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Center(
+                  child: new Text(
+                    'Transaction History',
+                    style: new TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                )
+              ],
+            )
+        ),
+        new Container(
+            margin: new EdgeInsets.only(left: 0.0, right: 0.0),
             child:
                 _todoList.isNotEmpty ? _createListView() : _buildNoTodoView())
       ],
@@ -301,37 +312,36 @@ class _TodoListState extends State<TodoList> {
   }
 
   Column buildValueColumn(String label, String value, MaterialColor color) {
-      Color colorTitle = Theme.of(context).primaryColor;
+    Color colorTitle = Theme.of(context).primaryColor;
 
-      return new Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          new Container(
-            padding: EdgeInsets.only(top: 26.0),
-            child: new Text(
-              label,
-              style: new TextStyle(
-                color: colorTitle,
-              ),
+    return new Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        new Container(
+          padding: EdgeInsets.only(top: 26.0),
+          child: new Text(
+            label,
+            style: new TextStyle(
+              color: colorTitle,
             ),
           ),
-          new Container(
-            margin: const EdgeInsets.only(top: 8.0),
-            padding: EdgeInsets.only(bottom: 26.0),
-            child: new Text(
-              value,
-              style: new TextStyle(
-                fontSize: 26.0,
-                fontWeight: FontWeight.w400,
-                color: color,
-                
-              ),
+        ),
+        new Container(
+          margin: const EdgeInsets.only(top: 8.0),
+          padding: EdgeInsets.only(bottom: 26.0),
+          child: new Text(
+            value,
+            style: new TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.w400,
+              color: color,
             ),
           ),
-        ],
-      );
-    }
+        ),
+      ],
+    );
+  }
 
   Center _buildNoTodoView() {
     return new Center(
@@ -343,21 +353,18 @@ class _TodoListState extends State<TodoList> {
     );
   }
 
-  FutureBuilder<List<Item>> _buildBody(){
+  FutureBuilder<List<Item>> _buildBody() {
     return new FutureBuilder<List<Item>>(
-      future: null ,
+      future: null,
       builder: (BuildContext context, AsyncSnapshot<List<Item>> snapshot) {
-        switch(snapshot.connectionState){
+        switch (snapshot.connectionState) {
           case ConnectionState.none:
             return null;
           case ConnectionState.waiting:
             return null;
           default:
-            if(snapshot.data.isNotEmpty){
-
-            }else{
-
-            }
+            if (snapshot.data.isNotEmpty) {
+            } else {}
         }
       },
     );
@@ -367,7 +374,7 @@ class _TodoListState extends State<TodoList> {
     _initalState = false;
     return <Widget>[
       // new CircularProgressIndicator()
-      ];
+    ];
   }
 
   List<Widget> _buildNoToDoViewItem() {
